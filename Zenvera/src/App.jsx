@@ -20,8 +20,7 @@ import Solutions from './pages/Solutions';
 import HelpCenter from './pages/HelpCenter';
 import Community from './pages/Community';
 import Updates from './pages/Updates';
-import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
+
 
 function App() {
   return (
@@ -51,9 +50,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/updates" element={<Updates />} />
 
-          {/* Auth */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+
         </Routes >
       </Layout >
     </Router >

@@ -98,7 +98,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 absolute top-24 left-0 right-0 shadow-xl min-h-screen animate-fade-in-down z-40 px-4 pt-4 pb-20 overflow-y-auto">
+          <div className="lg:hidden bg-white border-t border-gray-100 absolute top-24 left-0 right-0 shadow-xl h-[calc(100vh-6rem)] animate-fade-in-down z-40 px-4 pt-4 pb-20 overflow-y-auto">
             <div className="flex flex-col space-y-2">
               <div className="py-2">
                 <span className="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Services</span>
@@ -132,9 +132,7 @@ const Header = () => {
                 >
                   Schedule Consultation
                 </Link>
-                <div className="mt-4 text-center">
-                  <Link to="/login" className="text-sm font-medium text-zen-gray hover:text-zen-primary">Client Login</Link>
-                </div>
+
               </div>
             </div>
           </div>
