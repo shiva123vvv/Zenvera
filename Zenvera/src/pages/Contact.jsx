@@ -1,177 +1,212 @@
-import React from 'react';
-import ContactForm from '../components/comman/ContactForm';
-import { FiMail, FiPhone, FiMapPin, FiClock, FiMessageSquare } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle } from 'react-icons/fi';
+import SEO from '../components/comman/SEO';
 
 const Contact = () => {
+  // Frontend-only form state
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle, submitting, success
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    }, 1500);
+  };
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const contactInfo = [
     {
       icon: <FiMail className="text-xl" />,
-      title: 'Email',
-      details: ['hello@zenvera.com', 'support@zenvera.com'],
-      description: 'We respond within 4 hours'
+      title: 'Email Us',
+      details: [
+        { text: 'hello@zenvera.com', link: 'mailto:hello@zenvera.com' },
+        { text: 'support@zenvera.com', link: 'mailto:support@zenvera.com' }
+      ],
+      description: 'We respond within 24 hours'
     },
     {
       icon: <FiPhone className="text-xl" />,
-      title: 'Phone',
-      details: ['+91 80 1234 5678', '+91 98 7654 3210'],
+      title: 'Call Us',
+      details: [
+        { text: '+91 80 1234 5678', link: 'tel:+918012345678' },
+        { text: '+91 98 7654 3210', link: 'tel:+919876543210' }
+      ],
       description: 'Mon-Fri, 9AM-6PM IST'
     },
     {
       icon: <FiMapPin className="text-xl" />,
-      title: 'Office',
-      details: ['123 Innovation Dr, Suite 500', 'San Francisco, CA 94107'],
-      description: 'Global Headquarters'
+      title: 'Head Office',
+      details: [
+        { text: 'Thiruchengode', link: 'https://maps.google.com/?q=Thiruchengode' }
+      ],
+      description: 'Tamil Nadu, India'
     },
     {
-      icon: <FiClock className="text-xl" />,
-      title: 'Hours',
-      details: ['Monday - Friday: 9AM - 6PM', 'Saturday: 10AM - 2PM'],
-      description: 'IST Time Zone'
-    }
-  ];
-
-  const faqs = [
-    {
-      question: 'What is your typical project timeline?',
-      answer: 'Timelines vary based on project complexity. Simple websites take 4-6 weeks, while complex applications can take 3-6 months.'
-    },
-    {
-      question: 'Do you offer ongoing maintenance?',
-      answer: 'Yes, we provide comprehensive maintenance packages including updates, security patches, and performance monitoring.'
-    },
-    {
-      question: 'What is your development process?',
-      answer: 'We follow an agile methodology with regular client updates, sprint reviews, and iterative development.'
-    },
-    {
-      question: 'How do you handle project pricing?',
-      answer: 'We provide transparent fixed-price or time-and-material quotes after understanding your requirements.'
+      icon: <FiMapPin className="text-xl" />,
+      title: 'Our Branches',
+      details: [
+        { text: 'MM Hills', link: 'https://maps.google.com/?q=MM+Hills' },
+        { text: 'Hanur (Chamarajanagara)', link: 'https://maps.google.com/?q=Hanur' }
+      ],
+      description: 'Karnataka, India'
     }
   ];
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in bg-zen-light min-h-screen">
+      <SEO
+        title="Contact Us | Zenvera"
+        description="Get in touch with Zenvera for your next digital project. Free consultation and quote."
+      />
       {/* Hero */}
-      <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-zen-navy">
-            Get in <span className="text-transparent bg-clip-text bg-primary-gradient">Touch</span>
+      <section className="bg-zen-navy pt-32 pb-32 lg:pt-40 lg:pb-48 text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary-gradient opacity-10 blur-3xl rounded-l-full"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+            Let's Talk About Your Project
           </h1>
-          <p className="text-xl text-zen-gray max-w-3xl mx-auto">
-            Ready to start your project? Contact us for a free consultation and discover how Zenvera can help transform your digital presence.
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Ready to start your digital transformation? Contact us for a free consultation or just to say hello.
           </p>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="section-padding bg-white relative">
+      {/* Content Section */}
+      <section className="relative -mt-20 pb-20 px-4 sm:px-6 lg:px-8 z-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-3xl p-8 shadow-glass border border-white/50">
-                <ContactForm />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            {/* Contact Form Card */}
+            <div className="lg:col-span-2 bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-zen-navy mb-2">Send us a Message</h2>
+                <p className="text-zen-gray">Fill out the form below and our team will get back to you shortly.</p>
               </div>
+
+              {status === 'success' ? (
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center animate-fade-in">
+                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                    <FiCheckCircle />
+                  </div>
+                  <h3 className="text-xl font-bold text-zen-navy mb-2">Message Sent!</h3>
+                  <p className="text-green-700">Thank you for reaching out. We'll be in touch very soon.</p>
+                  <button onClick={() => setStatus('idle')} className="mt-6 text-zen-primary font-bold underline">Send another message</button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-zen-navy">Full Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-zen-primary focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-zen-navy">Email Address</label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-zen-primary focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-zen-navy">Subject</label>
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-zen-primary focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white"
+                    >
+                      <option value="">Select a topic...</option>
+                      <option value="Project Inquiry">New Project Inquiry</option>
+                      <option value="Partnership">Partnership Proposal</option>
+                      <option value="Support">Technical Support</option>
+                      <option value="Careers">Careers / Job Application</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-zen-navy">Message</label>
+                    <textarea
+                      name="message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows="5"
+                      placeholder="Tell us about your project goals, timeline, and budget..."
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-zen-primary focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white resize-none"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className={`w-full btn-primary py-4 text-lg shadow-lg flex items-center justify-center gap-2 ${status === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  >
+                    {status === 'submitting' ? 'Sending...' : <><FiSend /> Send Message</>}
+                  </button>
+                </form>
+              )}
             </div>
 
-            {/* Contact Info */}
+            {/* Contact Info Sidebar */}
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-soft border border-gray-100 hover:border-zen-primary/20 transition-all duration-300">
+                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:-translate-y-1 transition-transform">
                   <div className="flex items-start gap-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary-gradient text-white flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-zen-primary flex items-center justify-center text-xl flex-shrink-0">
                       {info.icon}
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold mb-2 text-zen-navy">{info.title}</h3>
-                      <div className="space-y-1 mb-2">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-zen-navy text-lg mb-1">{info.title}</h3>
+                      <div className="flex flex-col">
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-zen-gray font-medium">{detail}</p>
+                          <a
+                            key={idx}
+                            href={detail.link}
+                            target={detail.link.startsWith('http') ? "_blank" : "_self"}
+                            rel="noreferrer"
+                            className="text-zen-gray font-medium hover:text-zen-primary transition-colors py-0.5"
+                          >
+                            {detail.text}
+                          </a>
                         ))}
                       </div>
-                      <p className="text-xs text-zen-primary font-bold uppercase tracking-wider">{info.description}</p>
+                      <p className="text-xs text-gray-400 mt-2 uppercase tracking-wide font-bold">{info.description}</p>
                     </div>
                   </div>
                 </div>
               ))}
 
-              {/* Quick Chat */}
-              <div className="bg-zen-navy rounded-2xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-gradient opacity-20 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 text-white mb-6 backdrop-blur-sm border border-white/20">
-                    <FiMessageSquare className="text-xl" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Quick Chat</h3>
-                  <p className="text-gray-300 mb-8 text-sm">Prefer to chat instantly? Our team is available for quick questions.</p>
-                  <button className="w-full btn-primary shadow-lg shadow-zen-primary/30">
-                    Start Live Chat
-                  </button>
-                </div>
+              {/* Map Card */}
+              <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-100 h-64 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15654.56847844062!2d77.896677!3d11.380000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9641777239845%3A0xe549320619a008c7!2sThiruchengode%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1642186830722!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, borderRadius: '1rem' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  title="Headquarters Map"
+                ></iframe>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="bg-zen-light py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-zen-navy">Visit Our Office</h2>
-            <p className="text-zen-gray">123 Tech Street, Bangalore, India</p>
-          </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl h-96 lg:h-[500px] border-4 border-white">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.6309395!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Zenvera Office Location"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQs */}
-      <section className="section-padding bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-zen-navy">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-bold mb-3 text-zen-navy">{faq.question}</h3>
-                <p className="text-zen-gray leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-zen-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary-gradient opacity-10"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Still Have Questions?</h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            We're here to help. Reach out to us for any questions about our services or process.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:hello@zenvera.com"
-              className="btn-primary flex items-center justify-center"
-            >
-              Email Us Now
-            </a>
-            <a
-              href="tel:+918012345678"
-              className="px-8 py-3.5 rounded-xl font-semibold border border-white/20 hover:bg-white/10 transition-colors flex items-center justify-center"
-            >
-              Call Us Directly
-            </a>
           </div>
         </div>
       </section>

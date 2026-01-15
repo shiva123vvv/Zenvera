@@ -47,6 +47,34 @@ const PrivacyPolicy = () => {
                     <h2 className="text-zen-navy">5. Data Security</h2>
                     <p>
                         We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.
+                        In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
+                    </p>
+
+                    <h2 className="text-zen-navy">6. Cookies and Tracking Technologies</h2>
+                    <p>
+                        We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.
+                        Cookies are files with small amount of data which may include an anonymous unique identifier.
+                        You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+                    </p>
+
+                    <h2 className="text-zen-navy">7. Third-Party Links</h2>
+                    <p>
+                        This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you.
+                        We do not control these third-party websites and are not responsible for their privacy statements.
+                    </p>
+
+                    <h2 className="text-zen-navy">8. Your Legal Rights</h2>
+                    <p>
+                        Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to access, correct, erase, restrict, transfer, or object to processing of your personal data.
+                    </p>
+
+                    <h2 className="text-zen-navy">9. Contact Us</h2>
+                    <p>
+                        If you have any questions about this Privacy Policy, please contact us:
+                        <br />
+                        - By email: privacy@zenvera.com
+                        <br />
+                        - By visiting this page on our website: <a href="/contact" className="text-zen-primary hover:underline">Contact Us</a>
                     </p>
                 </div>
             </section>

@@ -9,28 +9,26 @@ const Footer = () => {
       { name: 'Mobile App Development', path: '/services/mobile-app-development' },
       { name: 'Software Solutions', path: '/services/software-solutions' },
       { name: 'Industry Solutions', path: '/solutions' },
-      { name: 'Pricing Plans', path: '/pricing' }
     ],
     Company: [
       { name: 'About Zenvera', path: '/about' },
-      { name: 'Our Work', path: '/case-studies' },
-      { name: 'Success Stories', path: '/case-studies' },
+      { name: 'Case Studies', path: '/case-studies' },
       { name: 'Careers', path: '/careers' },
       { name: 'Contact Us', path: '/contact' }
     ],
     Resources: [
-      { name: 'Insights & Blog', path: '/blog' },
+      { name: 'Insights & Blog', path: '/insights' },
       { name: 'Help Center', path: '/help' },
       { name: 'Community', path: '/community' },
-      { name: 'Product Updates', path: '/updates' }
+      { name: 'Agency Roadmap', path: '/updates' }
     ]
   };
 
   const socialLinks = [
-    { icon: <FiFacebook />, url: '#' },
-    { icon: <FiTwitter />, url: '#' },
-    { icon: <FiLinkedin />, url: '#' },
-    { icon: <FiInstagram />, url: '#' }
+    { icon: <FiFacebook />, url: 'https://facebook.com/zenvera' },
+    { icon: <FiTwitter />, url: 'https://twitter.com/zenvera' },
+    { icon: <FiLinkedin />, url: 'https://linkedin.com/company/zenvera' },
+    { icon: <FiInstagram />, url: 'https://instagram.com/zenvera' }
   ];
 
   return (
@@ -53,11 +51,19 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-zen-primary transition-colors text-white border border-white/10"
                 >
                   {social.icon}
                 </a>
               ))}
+            </div>
+            <div className="mt-8">
+              <Link to="/careers" className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors border border-white/10 group">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span className="text-sm font-bold text-white group-hover:text-zen-secondary">We're Hiring! Join our team &rarr;</span>
+              </Link>
             </div>
           </div>
 
@@ -79,7 +85,6 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 border-t border-gray-800 pt-12">
@@ -87,21 +92,23 @@ const Footer = () => {
             <div className="p-3 bg-white/5 rounded-lg text-zen-primary"><FiMapPin size={20} /></div>
             <div>
               <h4 className="font-bold mb-1">Headquarters</h4>
-              <p className="text-gray-400 text-sm">123 Innovation Dr, Suite 500<br />San Francisco, CA 94107</p>
+              <p className="text-gray-400 text-sm">Thiruchengode,<br />Tamil Nadu, India</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <div className="p-3 bg-white/5 rounded-lg text-zen-primary"><FiMail size={20} /></div>
             <div>
               <h4 className="font-bold mb-1">Email Us</h4>
-              <p className="text-gray-400 text-sm">hello@zenvera.com<br />support@zenvera.com</p>
+              <a href="mailto:hello@zenvera.com" className="text-gray-400 text-sm hover:text-white transition-colors">hello@zenvera.com</a><br />
+              <a href="mailto:support@zenvera.com" className="text-gray-400 text-sm hover:text-white transition-colors">support@zenvera.com</a>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <div className="p-3 bg-white/5 rounded-lg text-zen-primary"><FiPhone size={20} /></div>
             <div>
               <h4 className="font-bold mb-1">Call Us</h4>
-              <p className="text-gray-400 text-sm">+1 (555) 123-4567<br />Mon-Fri, 9am-6pm EST</p>
+              <a href="tel:+918012345678" className="text-gray-400 text-sm hover:text-white transition-colors">+91 80 1234 5678</a><br />
+              <span className="text-gray-500 text-xs">Mon-Fri, 9am-6pm IST</span>
             </div>
           </div>
         </div>

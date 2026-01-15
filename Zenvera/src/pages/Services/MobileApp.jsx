@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiSmartphone, FiTablet, FiGlobe, FiCheckCircle, FiDownload, FiRefreshCw, FiBarChart } from 'react-icons/fi';
+import { FiSmartphone, FiTablet, FiGlobe, FiCheckCircle, FiDownload, FiRefreshCw, FiBarChart, FiLayers, FiDatabase, FiCode } from 'react-icons/fi';
+import SEO from '../../components/comman/SEO';
 
 const MobileApp = () => {
   const services = [
@@ -30,15 +31,11 @@ const MobileApp = () => {
     }
   ];
 
-  const technologies = [
-    { name: 'React Native', icon: '⚛️', category: 'Cross-platform' },
-    { name: 'Flutter', icon: '🎯', category: 'Cross-platform' },
-    { name: 'Swift', icon: '🦅', category: 'iOS' },
-    { name: 'Kotlin', icon: '☕', category: 'Android' },
-    { name: 'Firebase', icon: '🔥', category: 'Backend' },
-    { name: 'AWS Amplify', icon: '☁️', category: 'Backend' },
-    { name: 'Figma', icon: '🎨', category: 'Design' },
-    { name: 'Jenkins', icon: '⚙️', category: 'CI/CD' }
+  const techCapabilities = [
+    { title: 'Frontend Mastery', desc: 'Expertise in all modern frontend frameworks to build responsive, interactive, and user-friendly interfaces.' },
+    { title: 'Backend Power', desc: 'Robust and scalable back-end solutions using the most suitable server-side languages and architectures.' },
+    { title: 'Mobile First', desc: 'Development of high-performance native and cross-platform mobile applications for all devices.' },
+    { title: 'Cloud Native', desc: 'Scalable cloud infrastructure deployment and management ensuring reliability and security.' }
   ];
 
   const developmentStages = [
@@ -66,6 +63,10 @@ const MobileApp = () => {
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Mobile App Development"
+        description="Native iOS, Android, and Cross-platform mobile app development services by Zenvera."
+      />
       {/* Hero */}
       <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,6 +112,38 @@ const MobileApp = () => {
         </div>
       </section>
 
+      {/* Visual Section */}
+      <section className="py-20 bg-zen-light overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-green-500/20 to-teal-500/20 rounded-full blur-3xl transform -rotate-6"></div>
+              <img
+                src="/src/assets/service_mobile.png"
+                alt="Mobile App Development Showcase"
+                className="relative rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500 border-4 border-white"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-zen-navy">Engineering Mobile Excellence</h2>
+              <p className="text-lg text-zen-gray mb-8 leading-relaxed">
+                In a mobile-first world, your app is your brand's most important touchpoint. We build intuitive, high-performance applications that users love to engage with.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                  <div className="text-2xl font-bold text-zen-primary mb-1">4.8+</div>
+                  <div className="text-sm text-zen-gray">Avg App Store Rating</div>
+                </div>
+                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                  <div className="text-2xl font-bold text-zen-primary mb-1">99.9%</div>
+                  <div className="text-sm text-zen-gray">Crash-Free Sessions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Development Stages */}
       <section className="section-padding bg-zen-light">
         <div className="max-w-7xl mx-auto">
@@ -145,20 +178,67 @@ const MobileApp = () => {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-zen-navy">Our Technology Stack</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {technologies.map((tech) => (
-              <div key={tech.name} className="text-center group">
-                <div className="w-24 h-24 rounded-3xl bg-gray-50 flex flex-col items-center justify-center mx-auto mb-4 group-hover:bg-zen-light transition-colors duration-300 border border-transparent group-hover:border-zen-primary/20">
-                  <span className="text-3xl mb-2">{tech.icon}</span>
-                  <span className="text-xs font-bold text-zen-primary uppercase tracking-wider">{tech.category}</span>
-                </div>
-                <div className="font-bold text-zen-navy">{tech.name}</div>
+      {/* We Work In All Technologies - New Section */}
+      <section className="py-24 bg-zen-navy text-white relative overflow-hidden">
+        {/* Abstract Background */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-gradient opacity-5 rounded-full blur-[100px] -mr-40 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-zen-secondary opacity-5 rounded-full blur-[80px] -ml-20 -mb-20"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider mb-6 border border-white/20">
+                <FiLayers className="mr-1" /> Technology Agnostic
               </div>
-            ))}
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">We Work Across <br /><span className="text-transparent bg-clip-text bg-primary-gradient">All Technologies</span></h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                We don't force your problem into a specific tech stack. Instead, we select the perfect tools for your unique requirements. We evaluate your business needs and implement the most effective technologies to ensure scalability, security, and performance.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {techCapabilities.map((tech, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+                    <h4 className="font-bold text-lg mb-1">{tech.title}</h4>
+                    <p className="text-gray-400 text-sm">{tech.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-zen-primary/20 to-zen-secondary/20 rounded-2xl blur-xl transform rotate-3"></div>
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-6">Our Engineering Philosophy</h3>
+                <ul className="space-y-6">
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-primary/20 flex items-center justify-center text-zen-primary mr-4 flex-shrink-0">
+                      <FiDatabase />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Performance First</h4>
+                      <p className="text-gray-400 text-sm mt-1">We optimize every line of code for maximum speed and efficiency, regardless of the language.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-secondary/20 flex items-center justify-center text-zen-secondary mr-4 flex-shrink-0">
+                      <FiLayers />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Scalable Architecture</h4>
+                      <p className="text-gray-400 text-sm mt-1">Systems designed to grow with your business, utilizing cloud-native principles and microservices.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4 flex-shrink-0">
+                      <FiCode />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Clean Code Standards</h4>
+                      <p className="text-gray-400 text-sm mt-1">Maintainable, documented, and tested code that ensures long-term project health.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

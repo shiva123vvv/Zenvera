@@ -69,16 +69,14 @@ const Header = () => {
             <NavLink to="/solutions" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
               Solutions
             </NavLink>
-            <NavLink to="/pricing" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
-              Pricing
-            </NavLink>
+
             <NavLink to="/case-studies" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
               Case Studies
             </NavLink>
             <NavLink to="/about" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
               About
             </NavLink>
-            <NavLink to="/blog" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
+            <NavLink to="/insights" className={({ isActive }) => `font-medium transition-colors hover:text-zen-primary ${isActive ? 'text-zen-primary' : 'text-zen-navy'}`}>
               Insights
             </NavLink>
 
@@ -121,7 +119,7 @@ const Header = () => {
               <div className="border-t border-gray-100 my-2"></div>
 
               <Link to="/solutions" className="px-4 py-3 text-zen-navy font-bold hover:bg-zen-light rounded-xl">Solutions</Link>
-              <Link to="/pricing" className="px-4 py-3 text-zen-navy font-bold hover:bg-zen-light rounded-xl">Pricing</Link>
+
               <Link to="/case-studies" className="px-4 py-3 text-zen-navy font-bold hover:bg-zen-light rounded-xl">Case Studies</Link>
               <Link to="/about" className="px-4 py-3 text-zen-navy font-bold hover:bg-zen-light rounded-xl">About Company</Link>
               <Link to="/blog" className="px-4 py-3 text-zen-navy font-bold hover:bg-zen-light rounded-xl">Insights & News</Link>

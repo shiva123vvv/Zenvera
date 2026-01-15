@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiCpu, FiDatabase, FiLink, FiCheckCircle, FiServer, FiCode, FiShield, FiBarChart } from 'react-icons/fi';
+import { FiCpu, FiDatabase, FiLink, FiCheckCircle, FiServer, FiCode, FiShield, FiBarChart, FiLayers } from 'react-icons/fi';
+import SEO from '../../components/comman/SEO';
 
 const SoftwareSolutions = () => {
   const solutions = [
@@ -39,17 +40,19 @@ const SoftwareSolutions = () => {
     { name: 'Logistics', icon: '🚚', solutions: 'Tracking systems, Fleet management, Delivery' }
   ];
 
-  const technologies = [
-    { category: 'Backend', techs: ['Node.js', 'Python', 'Java', '.NET'] },
-    { category: 'Frontend', techs: ['React', 'Angular', 'Vue.js'] },
-    { category: 'Mobile', techs: ['React Native', 'Flutter', 'Swift', 'Kotlin'] },
-    { category: 'Database', techs: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis'] },
-    { category: 'Cloud', techs: ['AWS', 'Azure', 'Google Cloud'] },
-    { category: 'DevOps', techs: ['Docker', 'Kubernetes', 'Jenkins', 'Git'] }
+  const techCapabilities = [
+    { title: 'Frontend Mastery', desc: 'Expertise in all modern frontend frameworks to build responsive, interactive, and user-friendly interfaces.' },
+    { title: 'Backend Power', desc: 'Robust and scalable back-end solutions using the most suitable server-side languages and architectures.' },
+    { title: 'Mobile First', desc: 'Development of high-performance native and cross-platform mobile applications for all devices.' },
+    { title: 'Cloud Native', desc: 'Scalable cloud infrastructure deployment and management ensuring reliability and security.' }
   ];
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Software Solutions"
+        description="Custom software development, legacy modernization, and API integration services by Zenvera."
+      />
       {/* Hero */}
       <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,6 +69,36 @@ const SoftwareSolutions = () => {
           <Link to="/contact" className="btn-primary">
             Discuss Your Project
           </Link>
+        </div>
+      </section>
+
+      {/* Architecture Visual */}
+      <section className="py-20 bg-zen-light overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative perspective-1000">
+              <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
+              <img
+                src="/src/assets/software_architecture.png"
+                alt="Enterprise Software Architecture"
+                className="relative rounded-2xl shadow-2xl border border-white/40 w-full transform hover:rotate-x-2 transition-transform duration-700"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider mb-6">
+                <FiDatabase className="mr-1" /> Data-Driven
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-zen-navy">Modern Architecture Definition</h2>
+              <p className="text-xl text-zen-gray mb-8 leading-relaxed">
+                We don't just patch legacy systems; we redefine them. Using microservices, containerization, and cloud-native principles, we build software that thrives on change.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center text-zen-navy font-bold"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div> Modular Microservices Design</li>
+                <li className="flex items-center text-zen-navy font-bold"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div> Docker & Kubernetes Orchestration</li>
+                <li className="flex items-center text-zen-navy font-bold"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div> Serverless Event-Driven Logic</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -111,29 +144,67 @@ const SoftwareSolutions = () => {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-zen-navy">Technology Expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {technologies.map((category) => (
-              <div key={category.category} className="border border-gray-100 rounded-2xl p-8 hover:shadow-soft transition-all duration-300 bg-white">
-                <h3 className="text-xl font-bold mb-6 text-zen-navy flex items-center">
-                  <span className="w-2 h-6 bg-zen-primary rounded-full mr-3"></span>
-                  {category.category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.techs.map((tech) => (
-                    <span
-                      key={tech}
-                      className="inline-block px-4 py-2 bg-gray-50 text-zen-gray rounded-xl text-sm font-medium hover:bg-zen-primary hover:text-white transition-colors duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+      {/* We Work In All Technologies - New Section */}
+      <section className="py-24 bg-zen-navy text-white relative overflow-hidden">
+        {/* Abstract Background */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-gradient opacity-5 rounded-full blur-[100px] -mr-40 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-zen-secondary opacity-5 rounded-full blur-[80px] -ml-20 -mb-20"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider mb-6 border border-white/20">
+                <FiLayers className="mr-1" /> Technology Agnostic
               </div>
-            ))}
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">We Work Across <br /><span className="text-transparent bg-clip-text bg-primary-gradient">All Technologies</span></h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                We don't force your problem into a specific tech stack. Instead, we select the perfect tools for your unique requirements. We evaluate your business needs and implement the most effective technologies to ensure scalability, security, and performance.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {techCapabilities.map((tech, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+                    <h4 className="font-bold text-lg mb-1">{tech.title}</h4>
+                    <p className="text-gray-400 text-sm">{tech.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-zen-primary/20 to-zen-secondary/20 rounded-2xl blur-xl transform rotate-3"></div>
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-6">Our Engineering Philosophy</h3>
+                <ul className="space-y-6">
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-primary/20 flex items-center justify-center text-zen-primary mr-4 flex-shrink-0">
+                      <FiDatabase />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Performance First</h4>
+                      <p className="text-gray-400 text-sm mt-1">We optimize every line of code for maximum speed and efficiency, regardless of the language.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-secondary/20 flex items-center justify-center text-zen-secondary mr-4 flex-shrink-0">
+                      <FiLayers />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Scalable Architecture</h4>
+                      <p className="text-gray-400 text-sm mt-1">Systems designed to grow with your business, utilizing cloud-native principles and microservices.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4 flex-shrink-0">
+                      <FiCode />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Clean Code Standards</h4>
+                      <p className="text-gray-400 text-sm mt-1">Maintainable, documented, and tested code that ensures long-term project health.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

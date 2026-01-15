@@ -4,10 +4,17 @@ import { FiArrowRight, FiPlay, FiCheck, FiCalendar, FiTarget, FiLayers, FiUsers,
 import { SiReact, SiNodedotjs, SiPython, SiAmazonaws, SiMongodb, SiDocker, SiTailwindcss, SiTypescript, SiNextdotjs } from 'react-icons/si';
 import heroIllustration from '../assets/hero-illustration.png';
 import dashboardMockup from '../assets/dashboard-mockup.png';
+import { blogPosts } from '../data/blogPosts';
+
+import SEO from '../components/comman/SEO';
 
 const Home = () => {
   return (
     <div className="overflow-hidden">
+      <SEO
+        title="Home"
+        description="Zenvera - Building Future-Ready Enterprise Solutions. We design and develop scalable software solutions that drive innovation."
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,6 +167,38 @@ const Home = () => {
         </div>
       </section>
 
+
+
+      {/* Strategy Visual Section */}
+      <section className="py-20 bg-zen-light overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative group perspective-1000">
+              <div className="absolute inset-0 bg-primary-gradient opacity-10 blur-2xl rounded-3xl transform rotate-3 scale-95 group-hover:rotate-0 transition-all duration-700"></div>
+              <img
+                src="/src/assets/process_planning.png"
+                alt="Strategic Planning"
+                className="relative rounded-3xl shadow-xl transform group-hover:rotate-y-2 transition-transform duration-700 border border-white/40"
+              />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-600 font-bold text-xs uppercase tracking-wider mb-6">
+                <FiLayers className="mr-1" /> Strategy First
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-zen-navy">From Chaos to Clarity</h2>
+              <p className="text-xl text-zen-gray mb-8 leading-relaxed">
+                Great software doesn't happen by accident. It starts with a clear vision and a solid plan. We help you cut through the noise and focus on what matters.
+              </p>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center text-zen-navy font-medium"><FiCheck className="text-orange-500 mr-3 text-xl" /> Requirement Analysis</li>
+                <li className="flex items-center text-zen-navy font-medium"><FiCheck className="text-orange-500 mr-3 text-xl" /> Technical Feasibility Study</li>
+                <li className="flex items-center text-zen-navy font-medium"><FiCheck className="text-orange-500 mr-3 text-xl" /> Roadmap Development</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,62 +341,41 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zen-navy">Latest Insights</h2>
               <p className="text-zen-gray max-w-xl">Stay ahead of the curve with our expert analysis and industry trends.</p>
             </div>
-            <Link to="/blog" className="hidden md:flex items-center gap-2 text-zen-primary font-bold hover:gap-3 transition-all">
+            <Link to="/insights" className="hidden md:flex items-center gap-2 text-zen-primary font-bold hover:gap-3 transition-all">
               View All Articles <FiArrowRight />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Blog Card 1 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video bg-gray-100">
-                <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-zen-primary shadow-sm">Tech</div>
-                <div className="w-full h-full flex items-center justify-center text-4xl">🌐</div>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-zen-gray mb-2">
-                <span className="flex items-center gap-1"><FiCalendar className="text-zen-primary" /> Dec 15, 2023</span>
-                <span>•</span>
-                <span>5 min read</span>
-              </div>
-              <h3 className="text-xl font-bold text-zen-navy mb-2 group-hover:text-zen-primary transition-colors">The Future of Web Development in 2024</h3>
-              <p className="text-zen-gray line-clamp-2">Exploring the latest trends in web development including AI integration, PWAs, and performance.</p>
-            </div>
-
-            {/* Blog Card 2 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video bg-gray-100">
-                <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-zen-primary shadow-sm">Security</div>
-                <div className="w-full h-full flex items-center justify-center text-4xl">🔒</div>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-zen-gray mb-2">
-                <span className="flex items-center gap-1"><FiCalendar className="text-zen-primary" /> Dec 10, 2023</span>
-                <span>•</span>
-                <span>4 min read</span>
-              </div>
-              <h3 className="text-xl font-bold text-zen-navy mb-2 group-hover:text-zen-primary transition-colors">Mobile App Security Best Practices</h3>
-              <p className="text-zen-gray line-clamp-2">Essential security measures every mobile app developer should implement to protect user data.</p>
-            </div>
-
-            {/* Blog Card 3 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video bg-gray-100">
-                <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-zen-primary shadow-sm">Cloud</div>
-                <div className="w-full h-full flex items-center justify-center text-4xl">☁️</div>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-zen-gray mb-2">
-                <span className="flex items-center gap-1"><FiCalendar className="text-zen-primary" /> Dec 5, 2023</span>
-                <span>•</span>
-                <span>6 min read</span>
-              </div>
-              <h3 className="text-xl font-bold text-zen-navy mb-2 group-hover:text-zen-primary transition-colors">Cloud Migration Strategies</h3>
-              <p className="text-zen-gray line-clamp-2">A comprehensive guide to successful cloud adoption and migration for large organizations.</p>
-            </div>
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link to={`/insights/${post.slug}`} key={post.id} className="group cursor-pointer block">
+                <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video bg-gray-100">
+                  <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                  <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-zen-primary shadow-sm">{post.category}</div>
+                  {post.imagePath ? (
+                    <img
+                      src={post.imagePath}
+                      alt={post.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                    />
+                  ) : null}
+                  <div className="w-full h-full flex items-center justify-center text-4xl bg-gray-50" style={{ display: post.imagePath ? 'none' : 'flex' }}>
+                    {post.image || '📝'}
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-zen-gray mb-2">
+                  <span className="flex items-center gap-1"><FiCalendar className="text-zen-primary" /> {post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h3 className="text-xl font-bold text-zen-navy mb-2 group-hover:text-zen-primary transition-colors line-clamp-2">{post.title}</h3>
+                <p className="text-zen-gray line-clamp-2">{post.excerpt}</p>
+              </Link>
+            ))}
           </div>
           <div className="mt-8 text-center md:hidden">
-            <Link to="/blog" className="btn-secondary inline-flex items-center gap-2">
+            <Link to="/insights" className="btn-secondary inline-flex items-center gap-2">
               View All Articles <FiArrowRight />
             </Link>
           </div>
@@ -377,7 +395,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 

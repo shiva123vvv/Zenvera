@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiCode, FiShoppingCart, FiLayout, FiSmartphone, FiCheckCircle, FiDatabase } from 'react-icons/fi';
+import { FiCode, FiShoppingCart, FiLayout, FiSmartphone, FiCheckCircle, FiDatabase, FiLayers } from 'react-icons/fi';
+import SEO from '../../components/comman/SEO';
 
 const WebDevelopment = () => {
   const subServices = [
@@ -30,15 +31,11 @@ const WebDevelopment = () => {
     }
   ];
 
-  const technologies = [
-    { name: 'React', logo: '⚛️' },
-    { name: 'Next.js', logo: '▲' },
-    { name: 'Node.js', logo: '⬢' },
-    { name: 'Python', logo: '🐍' },
-    { name: 'MongoDB', logo: '🍃' },
-    { name: 'PostgreSQL', logo: '🐘' },
-    { name: 'AWS', logo: '☁️' },
-    { name: 'Docker', logo: '🐳' }
+  const techCapabilities = [
+    { title: 'Frontend Mastery', desc: 'Expertise in all modern frontend frameworks to build responsive, interactive, and user-friendly interfaces.' },
+    { title: 'Backend Power', desc: 'Robust and scalable back-end solutions using the most suitable server-side languages and architectures.' },
+    { title: 'Mobile First', desc: 'Development of high-performance native and cross-platform mobile applications for all devices.' },
+    { title: 'Cloud Native', desc: 'Scalable cloud infrastructure deployment and management ensuring reliability and security.' }
   ];
 
   const processSteps = [
@@ -51,6 +48,10 @@ const WebDevelopment = () => {
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Web Development"
+        description="Professional web development services including custom apps, e-commerce, and responsive design."
+      />
       {/* Hero */}
       <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,6 +97,34 @@ const WebDevelopment = () => {
         </div>
       </section>
 
+      {/* Visual Section */}
+      <section className="py-20 bg-zen-navy overflow-hidden relative">
+        <div className="absolute inset-0 bg-primary-gradient opacity-20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Immersive Digital Experiences</h2>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                We don't just write code; we craft digital ecosystems. Our web solutions are designed to captivate your audience and convert visitors into loyal customers.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center"><div className="w-2 h-2 bg-zen-secondary rounded-full mr-3"></div> Next-Gen Performance Optimization</li>
+                <li className="flex items-center"><div className="w-2 h-2 bg-zen-secondary rounded-full mr-3"></div> Interactive 3D Web Elements</li>
+                <li className="flex items-center"><div className="w-2 h-2 bg-zen-secondary rounded-full mr-3"></div> Seamless Cross-Device Fluidity</li>
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-zen-secondary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+              <img
+                src="/src/assets/service_web.png"
+                alt="Web Development Architecture"
+                className="relative rounded-2xl shadow-2xl border border-white/10 w-full hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="section-padding bg-zen-light">
         <div className="max-w-7xl mx-auto">
@@ -117,19 +146,67 @@ const WebDevelopment = () => {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-zen-navy">Technologies We Use</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
-            {technologies.map((tech) => (
-              <div key={tech.name} className="text-center group">
-                <div className="w-20 h-20 rounded-2xl bg-gray-50 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:bg-white group-hover:shadow-lg transition-all duration-300 border border-transparent group-hover:border-gray-100">
-                  {tech.logo}
-                </div>
-                <div className="font-medium text-zen-navy">{tech.name}</div>
+      {/* We Work In All Technologies - New Section */}
+      <section className="py-24 bg-zen-navy text-white relative overflow-hidden">
+        {/* Abstract Background */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-gradient opacity-5 rounded-full blur-[100px] -mr-40 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-zen-secondary opacity-5 rounded-full blur-[80px] -ml-20 -mb-20"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider mb-6 border border-white/20">
+                <FiLayers className="mr-1" /> Technology Agnostic
               </div>
-            ))}
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">We Work Across <br /><span className="text-transparent bg-clip-text bg-primary-gradient">All Technologies</span></h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                We don't force your problem into a specific tech stack. Instead, we select the perfect tools for your unique requirements. We evaluate your business needs and implement the most effective technologies to ensure scalability, security, and performance.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {techCapabilities.map((tech, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-sm">
+                    <h4 className="font-bold text-lg mb-1">{tech.title}</h4>
+                    <p className="text-gray-400 text-sm">{tech.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-zen-primary/20 to-zen-secondary/20 rounded-2xl blur-xl transform rotate-3"></div>
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-6">Our Engineering Philosophy</h3>
+                <ul className="space-y-6">
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-primary/20 flex items-center justify-center text-zen-primary mr-4 flex-shrink-0">
+                      <FiDatabase />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Performance First</h4>
+                      <p className="text-gray-400 text-sm mt-1">We optimize every line of code for maximum speed and efficiency, regardless of the language.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-zen-secondary/20 flex items-center justify-center text-zen-secondary mr-4 flex-shrink-0">
+                      <FiLayers />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Scalable Architecture</h4>
+                      <p className="text-gray-400 text-sm mt-1">Systems designed to grow with your business, utilizing cloud-native principles and microservices.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4 flex-shrink-0">
+                      <FiCode />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">Clean Code Standards</h4>
+                      <p className="text-gray-400 text-sm mt-1">Maintainable, documented, and tested code that ensures long-term project health.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

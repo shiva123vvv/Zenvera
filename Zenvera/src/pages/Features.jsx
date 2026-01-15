@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiLayout, FiSmartphone, FiShield, FiTrendingUp, FiSettings, FiUsers } from 'react-icons/fi';
 
+import SEO from '../components/comman/SEO';
+
 const Features = () => {
     const features = [
         {
@@ -38,6 +40,10 @@ const Features = () => {
 
     return (
         <div className="animate-fade-in">
+            <SEO
+                title="Features"
+                description="Explore the powerful features and capabilities that make Zenvera the best choice for your digital growth."
+            />
             {/* Hero */}
             <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,6 +73,41 @@ const Features = () => {
                                 <p className="text-zen-gray">{feature.description}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Visual Toolkit Section */}
+            <section className="py-20 bg-zen-navy overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="order-2 lg:order-1 relative group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-3xl group-hover:blur-2xl transition-all duration-700"></div>
+                            <img
+                                src="/src/assets/features_toolbox.png"
+                                alt="Digital Toolkit Features"
+                                className="relative rounded-2xl shadow-2xl border border-white/10 w-full hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                        <div className="order-1 lg:order-2 text-white">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider mb-6 border border-white/20">
+                                <FiSettings className="mr-1" /> Advanced capabilities
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-bold mb-6">The Complete Toolkit</h2>
+                            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                                Don't settle for partial solutions. We provide a complete ecosystem of tools and features to handle every aspect of your digital business.
+                            </p>
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                                    <div className="text-2xl font-bold text-zen-secondary mb-1">50+</div>
+                                    <div className="text-sm text-gray-400">Integrations</div>
+                                </div>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                                    <div className="text-2xl font-bold text-zen-secondary mb-1">99.99%</div>
+                                    <div className="text-sm text-gray-400">Uptime SLA</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

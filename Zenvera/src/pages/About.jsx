@@ -1,7 +1,8 @@
 import React from 'react';
 import { FiUsers, FiTarget, FiAward, FiGlobe, FiHeart, FiZap } from 'react-icons/fi';
+import SEO from '../components/comman/SEO';
 
-const About = () => {
+const AboutPage = () => {
   const values = [
     {
       icon: <FiHeart />,
@@ -27,39 +28,54 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Alex Chen',
+      name: 'Mr Kumaravel P',
       role: 'CEO & Founder',
-      bio: '15+ years in software development and digital transformation.',
-      image: '👨‍💼'
+      bio: 'Visionary leader with a passion for building scalable technology solutions.',
+      image: '👨‍💼',
+      initials: 'KP'
     },
     {
-      name: 'Sarah Johnson',
+      name: 'Shivadharani K',
       role: 'CTO',
-      bio: 'Expert in cloud architecture and scalable systems.',
-      image: '👩‍💻'
+      bio: 'Technical architect driving innovation and engineering excellence.',
+      image: '👩‍💻',
+      initials: 'SD'
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Head of Delivery',
-      bio: 'Specializes in agile project management and client relations.',
-      image: '👨‍💼'
+      name: 'Shivanesh K',
+      role: 'COO',
+      bio: 'Operations expert ensuring seamless delivery and client satisfaction.',
+      image: '👨‍💼',
+      initials: 'SN'
     },
     {
-      name: 'Priya Sharma',
-      role: 'Creative Director',
-      bio: 'Passionate about user experience and design innovation.',
-      image: '👩‍🎨'
+      name: 'Mr M N',
+      role: 'CBO',
+      bio: 'Strategic business leader focused on global partnerships and growth.',
+      image: '👨‍💼',
+      initials: 'MN'
+    },
+    {
+      name: 'Mr Pandu',
+      role: 'Technical Lead',
+      bio: 'Leading our development teams with technical expertise and mentorship.',
+      image: '👨‍💻',
+      initials: 'MP'
     }
   ];
 
   const milestones = [
-    { year: '2025', event: 'Zenvera Founded', description: 'Founded on January 7, 2025, with a vision to transform digital experiences.' },
-    { year: '2025', event: 'Rapid Expansion', description: 'Grew to a team of 15 experts and secured first 10 major clients.' },
-    { year: '2026', event: 'Global Reach', description: 'Expanded operations to serve international markets and launched new product lines.' }
+    { year: '2025', event: 'Inception', description: 'Conceptualized the idea of a next-generation software agency.' },
+    { year: 'January 7, 2026', event: 'Official Launch', description: 'Founded Zenvera with a mission to redefine digital transformation.' },
+    { year: '2026', event: 'Core Team Assembly', description: 'Brought together industry experts to form our leadership council.' }
   ];
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="About Us | Zenvera"
+        description="Meet the team behind Zenvera. Founded in 2026, we are driven by innovation and excellence."
+      />
       {/* Hero */}
       <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +87,7 @@ const About = () => {
             About <span className="text-transparent bg-clip-text bg-primary-gradient">Zenvera</span>
           </h1>
           <p className="text-xl text-zen-gray max-w-3xl mx-auto mb-10">
-            We are a passionate team of technology experts dedicated to delivering innovative digital solutions that drive business growth.
+            Founded on January 7, 2026, we are a passionate team of technology experts dedicated to delivering innovative digital solutions that drive business growth.
           </p>
         </div>
       </section>
@@ -180,14 +196,16 @@ const About = () => {
       {/* Leadership */}
       <section className="section-padding bg-zen-light">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-zen-navy">Leadership Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-zen-navy">Global Leadership Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {leadership.map((person, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 text-center shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
-                <div className="text-6xl mb-6 bg-zen-light w-24 h-24 rounded-full flex items-center justify-center mx-auto">{person.image}</div>
-                <h3 className="text-xl font-bold mb-1 text-zen-navy">{person.name}</h3>
-                <div className="text-zen-primary font-bold text-sm uppercase tracking-wider mb-4">{person.role}</div>
-                <p className="text-zen-gray text-sm">{person.bio}</p>
+              <div key={index} className="bg-white rounded-3xl p-6 text-center shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-100 flex flex-col items-center h-full">
+                <div className="w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-zen-light to-gray-200 flex items-center justify-center ring-4 ring-white shadow-md">
+                  <span className="text-2xl font-bold text-zen-navy opacity-40">{person.initials}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-1 text-zen-navy">{person.name}</h3>
+                <div className="text-zen-primary font-bold text-xs uppercase tracking-wider mb-4 px-3 py-1 bg-zen-light rounded-full">{person.role}</div>
+                <p className="text-zen-gray text-xs leading-relaxed">{person.bio}</p>
               </div>
             ))}
           </div>
@@ -208,7 +226,7 @@ const About = () => {
               <div className="text-zen-secondary font-medium">Happy Clients</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">40+</div>
+              <div className="text-4xl md:text-6xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">10+</div>
               <div className="text-zen-secondary font-medium">Team Members</div>
             </div>
             <div>
@@ -222,4 +240,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

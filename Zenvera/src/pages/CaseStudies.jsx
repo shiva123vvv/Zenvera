@@ -1,54 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CaseStudyCard from '../components/comman/CaseStudyCard';
-import { FiFilter, FiSearch, FiDownload } from 'react-icons/fi';
+import { FiFilter, FiSearch, FiDownload, FiArrowRight } from 'react-icons/fi';
+import SEO from '../components/comman/SEO';
+import { Link } from 'react-router-dom';
+import { caseStudies } from '../data/caseStudies';
 
 const CaseStudies = () => {
-  const caseStudies = [
-    {
-      client: 'FinTech Startup',
-      challenge: 'Needed a scalable payment platform in 3 months to handle increasing transaction volume',
-      solution: 'Built a React/Node.js microservices architecture with AWS infrastructure and real-time analytics',
-      results: '40% faster transactions, 99.9% uptime, handled 1M+ transactions/month',
-      category: 'Web Development'
-    },
-    {
-      client: 'Healthcare Provider',
-      challenge: 'Legacy system causing operational delays and patient data management issues',
-      solution: 'Modernized platform with cloud migration, HIPAA-compliant database, and mobile access',
-      results: '60% reduction in processing time, improved data accuracy, better patient experience',
-      category: 'Software Solutions'
-    },
-    {
-      client: 'E-commerce Retailer',
-      challenge: 'Slow website performance leading to high bounce rates and lost sales',
-      solution: 'Complete frontend optimization, PWA implementation, and CDN integration',
-      results: '75% faster page loads, 40% increase in conversions, mobile sales doubled',
-      category: 'Web Development'
-    },
-    {
-      client: 'Logistics Company',
-      challenge: 'Inefficient tracking system causing delivery delays and customer complaints',
-      solution: 'Custom mobile app with real-time GPS tracking, driver management, and customer portal',
-      results: '30% faster deliveries, 50% reduction in customer complaints, improved route optimization',
-      category: 'Mobile App Development'
-    },
-    {
-      client: 'Education Platform',
-      challenge: 'Unable to handle concurrent users during peak enrollment periods',
-      solution: 'Scalable cloud architecture with load balancing and auto-scaling capabilities',
-      results: 'Handled 10K+ concurrent users, 99.5% uptime, reduced infrastructure costs by 40%',
-      category: 'Software Solutions'
-    },
-    {
-      client: 'Media Company',
-      challenge: 'Content management system too complex for non-technical staff',
-      solution: 'Custom CMS with intuitive interface, automated workflows, and integrated analytics',
-      results: '80% faster content publishing, reduced training time by 60%, increased engagement',
-      category: 'Web Development'
-    }
-  ];
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(4); // Start with 4 items
 
-  const filters = ['All', 'Web Development', 'Mobile App Development', 'Software Solutions', 'Healthcare', 'Finance', 'Retail'];
+
+
+  // Filter Logic
+  const filteredStudies = caseStudies.filter((study) => {
+    const matchesFilter = activeFilter === 'All' || study.category === activeFilter;
+    const matchesSearch =
+      study.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      study.challenge.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      study.solution.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 4);
+  };
+
+
+
+  const filters = ['All', 'Finance', 'Healthcare', 'Retail', 'Logistics', 'Education', 'Technology'];
 
   const industries = [
     { name: 'Finance', count: 4 },
@@ -61,6 +41,10 @@ const CaseStudies = () => {
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Case Studies"
+        description="See how Zenvera has helped businesses transform with custom software, web, and mobile app solutions."
+      />
       {/* Hero */}
       <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-28 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +68,8 @@ const CaseStudies = () => {
                 {filters.map((filter) => (
                   <button
                     key={filter}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${filter === 'All' ? 'bg-primary-gradient text-white shadow-md shadow-zen-primary/20' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'}`}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeFilter === filter ? 'bg-primary-gradient text-white shadow-md shadow-zen-primary/20' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'}`}
                   >
                     {filter}
                   </button>
@@ -96,10 +81,97 @@ const CaseStudies = () => {
               <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search case studies..."
                 className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-zen-primary/50 focus:border-zen-primary outline-none transition-all w-full md:w-64"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Showcase */}
+      <section className="py-20 bg-zen-light overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-12 text-zen-navy text-center">Featured Success Stories</h2>
+          <div className="flex flex-col gap-24">
+
+            {/* Fintech Case */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full mb-4">FINTECH</div>
+                <h3 className="text-3xl font-bold mb-4 text-zen-navy">NeoBank Dashboard Reimagined</h3>
+                <p className="text-zen-gray mb-6">A complete overhaul of the user experience for a leading digital bank, focusing on clarity, trust, and speed.</p>
+                <div className="flex gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">40%</div>
+                    <div className="text-xs text-gray-500">Faster Transactions</div>
+                  </div>
+                  <div className="w-px bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">1M+</div>
+                    <div className="text-xs text-gray-500">Monthly Users</div>
+                  </div>
+                </div>
+                <Link to="/case-studies/neobank-dashboard-reimagined" className="text-zen-primary font-bold hover:gap-2 flex items-center gap-1 transition-all">View Case Study <FiArrowRight /></Link>
+              </div>
+              <div className="order-1 md:order-2 relative group">
+                <div className="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <img src="/src/assets/case_study_fintech.png" alt="Fintech Dashboard" className="relative rounded-2xl shadow-xl w-full hover:scale-[1.02] transition-transform duration-500 border border-gray-100" />
+              </div>
+            </div>
+
+            {/* Health Case */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="order-1 relative group">
+                <div className="absolute inset-0 bg-teal-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <img src="/src/assets/case_study_health.png" alt="Health App" className="relative rounded-2xl shadow-xl w-full hover:scale-[1.02] transition-transform duration-500 border border-gray-100" />
+              </div>
+              <div className="order-2">
+                <div className="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-bold rounded-full mb-4">HEALTHCARE</div>
+                <h3 className="text-3xl font-bold mb-4 text-zen-navy">Patient-First Portal</h3>
+                <p className="text-zen-gray mb-6">Empowering patients with easy access to their medical records, appointments, and doctor communication.</p>
+                <div className="flex gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">60%</div>
+                    <div className="text-xs text-gray-500">Admin Reduction</div>
+                  </div>
+                  <div className="w-px bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">98%</div>
+                    <div className="text-xs text-gray-500">Patient Satisfaction</div>
+                  </div>
+                </div>
+                <Link to="/case-studies/patient-first-portal" className="text-zen-primary font-bold hover:gap-2 flex items-center gap-1 transition-all">View Case Study <FiArrowRight /></Link>
+              </div>
+            </div>
+
+            {/* Ecommerce Case */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-block px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full mb-4">E-COMMERCE</div>
+                <h3 className="text-3xl font-bold mb-4 text-zen-navy">Fashion Retail Mobile App</h3>
+                <p className="text-zen-gray mb-6">A vibrant, high-energy shopping experience designed to engage Gen Z shoppers and drive conversions.</p>
+                <div className="flex gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">75%</div>
+                    <div className="text-xs text-gray-500">Faster Load Times</div>
+                  </div>
+                  <div className="w-px bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-zen-primary">2x</div>
+                    <div className="text-xs text-gray-500">Mobile Conversions</div>
+                  </div>
+                </div>
+                <Link to="/case-studies/fashion-retail-mobile-app" className="text-zen-primary font-bold hover:gap-2 flex items-center gap-1 transition-all">View Case Study <FiArrowRight /></Link>
+              </div>
+              <div className="order-1 md:order-2 relative group">
+                <div className="absolute inset-0 bg-pink-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <img src="/src/assets/case_study_ecommerce.png" alt="Ecommerce App" className="relative rounded-2xl shadow-xl w-full hover:scale-[1.02] transition-transform duration-500 border border-gray-100" />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -110,17 +182,33 @@ const CaseStudies = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 gap-8">
-                {caseStudies.map((study, index) => (
-                  <CaseStudyCard key={index} {...study} />
-                ))}
+                {filteredStudies.length > 0 ? (
+                  filteredStudies.slice(0, visibleCount).map((study, index) => (
+                    <CaseStudyCard key={index} {...study} />
+                  ))
+                ) : (
+                  <div className="text-center py-12 bg-white rounded-2xl border border-gray-100">
+                    <div className="text-6xl text-gray-200 mb-4 mx-auto w-fit"><FiSearch /></div>
+                    <h3 className="text-xl font-bold text-zen-navy mb-2">No Case Studies Found</h3>
+                    <p className="text-zen-gray">Try adjusting your filters or search terms.</p>
+                    <button
+                      onClick={() => { setActiveFilter('All'); setSearchQuery(''); }}
+                      className="mt-4 text-zen-primary font-bold hover:underline"
+                    >
+                      Clear Filters
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Load More */}
-              <div className="text-center mt-12">
-                <button className="btn-secondary">
-                  Load More Case Studies
-                </button>
-              </div>
+              {visibleCount < filteredStudies.length && (
+                <div className="text-center mt-12">
+                  <button onClick={handleLoadMore} className="btn-secondary">
+                    Load More Case Studies
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}

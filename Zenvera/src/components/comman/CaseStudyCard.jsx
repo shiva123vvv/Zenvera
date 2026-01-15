@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiTrendingUp, FiCheckCircle } from 'react-icons/fi';
 
-const CaseStudyCard = ({ client, challenge, solution, results, category }) => {
+const CaseStudyCard = ({ client, challenge, solution, results, category, slug }) => {
   return (
     <div className="case-study-card group">
       {/* Category Badge with Gradient */}
@@ -56,7 +56,7 @@ const CaseStudyCard = ({ client, challenge, solution, results, category }) => {
 
         {/* CTA Link */}
         <Link
-          to="/case-studies"
+          to={`/case-studies/${slug}`}
           className="inline-flex items-center gap-2 text-zen-primary font-bold group/link hover:gap-3 transition-all duration-300 pt-2"
         >
           <span>View Full Case Study</span>
